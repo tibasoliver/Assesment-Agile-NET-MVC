@@ -34,6 +34,18 @@ namespace Assesment_Agile_NET_MVC.Controllers
 		}
 
         [HttpGet]
+        public JsonResult GetCategories()
+        {
+            var categories = CategoryRepository.GetAll().Select(p => new SelectListItem
+            {
+                Value = p.Id.ToString(),
+                Text = p.Name
+            }).ToList();
+
+            return Json(categories);
+        }
+
+        [HttpGet]
         public JsonResult GetProductsByCategory(int id)
         {
             var products = ProductRepository.GetByCategoryId(id).Select(p => new SelectListItem

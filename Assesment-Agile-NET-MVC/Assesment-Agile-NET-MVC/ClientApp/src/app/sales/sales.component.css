@@ -1,0 +1,22 @@
+/* sales.component.css */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.dropdown-label {
+  flex-grow: 1;
+  text-align: center;
+}
+
+  .dropdown-label.left {
+    text-align: left;
+  }
+
+  .dropdown-label.right {
+    text-align: right;
+  }

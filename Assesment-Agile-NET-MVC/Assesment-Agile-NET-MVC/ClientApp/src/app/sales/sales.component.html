@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="dropdown-label left">
+    <select [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()">
+      <option value="0">Select Category</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+  <div class="dropdown-label center">
+    <select [(ngModel)]="selectedProductId" (change)="onProductChange()">
+      <option value="0">Select Product</option>
+      <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+    </select>
+  </div>
+  <div class="dropdown-label right">
+    <select [(ngModel)]="selectedBrandId">
+      <option value="0">Select Brand</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.name }}</option>
+    </select>
+  </div>
+</div>
+
+<div id="chartContainer" style="height: 370px; width: 60%; margin: 0 auto;"></div>

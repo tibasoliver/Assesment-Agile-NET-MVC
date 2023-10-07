@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RkUezakbcryzxV5GzkggS/rQrPxCcm9xtKkgulxg02A=",
+  "Hash": "svNF+6Kx+BHkK7HQPDTueq81+Hb7lU0GIyklAOm1uVM=",
   "Source": "Assesment-Agile-NET-MVC",
   "BasePath": "_content/Assesment-Agile-NET-MVC",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\my-angular-app\\index.html"
+    },
+    {
+      "Identity": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\main.d82ba426d99a74e1.js",
+      "SourceId": "Assesment-Agile-NET-MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\",
+      "BasePath": "_content/Assesment-Agile-NET-MVC",
+      "RelativePath": "my-angular-app/main.d82ba426d99a74e1.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\my-angular-app\\main.d82ba426d99a74e1.js"
     },
     {
       "Identity": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\main.ea2f6ba991eb094e.js",
