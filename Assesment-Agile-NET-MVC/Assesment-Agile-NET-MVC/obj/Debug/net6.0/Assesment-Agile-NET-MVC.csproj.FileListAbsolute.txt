@@ -59,3 +59,9 @@ D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC
 D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\obj\Debug\net6.0\Assesment-Agile-NET-MVC.csproj.CopyComplete
+D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\ClientApp\angular.json
+D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\ClientApp\package-lock.json
+D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\ClientApp\package.json
+D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\ClientApp\tsconfig.app.json
+D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\ClientApp\tsconfig.json
+D:\repos\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\Assesment-Agile-NET-MVC\bin\Debug\net6.0\ClientApp\tsconfig.spec.json

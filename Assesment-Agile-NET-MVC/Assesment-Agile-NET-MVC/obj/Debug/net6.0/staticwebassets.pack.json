@@ -245,6 +245,34 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\my-angular-app\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\favicon.ico",
+      "PackagePath": "staticwebassets\\my-angular-app\\favicon.ico"
+    },
+    {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\index.html",
+      "PackagePath": "staticwebassets\\my-angular-app\\index.html"
+    },
+    {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\main.ea2f6ba991eb094e.js",
+      "PackagePath": "staticwebassets\\my-angular-app\\main.ea2f6ba991eb094e.js"
+    },
+    {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\polyfills.d9c2d27bb24122e9.js",
+      "PackagePath": "staticwebassets\\my-angular-app\\polyfills.d9c2d27bb24122e9.js"
+    },
+    {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\runtime.e924d9a47904ada6.js",
+      "PackagePath": "staticwebassets\\my-angular-app\\runtime.e924d9a47904ada6.js"
+    },
+    {
+      "Id": "D:\\repos\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\Assesment-Agile-NET-MVC\\wwwroot\\my-angular-app\\styles.ef46db3751d8e999.css",
+      "PackagePath": "staticwebassets\\my-angular-app\\styles.ef46db3751d8e999.css"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Assesment-Agile-NET-MVC.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
