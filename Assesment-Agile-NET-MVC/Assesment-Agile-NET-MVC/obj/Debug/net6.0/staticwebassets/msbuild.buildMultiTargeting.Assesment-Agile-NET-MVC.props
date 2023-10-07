@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Assesment-Agile-NET-MVC.props" />
+</Project>

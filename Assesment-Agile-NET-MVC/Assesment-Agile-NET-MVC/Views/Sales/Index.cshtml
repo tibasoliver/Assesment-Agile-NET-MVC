@@ -1,0 +1,205 @@
+﻿@page
+@model Assesment_Agile_NET_MVC.Views.Sales.IndexModel
+@{
+}
+
+<br/>
+<br/>
+
+
+<div class="container">
+    <div class="dropdown-label left">
+        @Html.DropDownList("CategoryId", (SelectList)ViewBag.Categorias, "Select the category")
+    </div>
+    <div class="dropdown-label center">
+        @Html.DropDownList("ProductId", (SelectList)ViewBag.Produtos, "Select the product")
+    </div>
+    <div class="dropdown-label right">
+        @Html.DropDownList("BrandId", (SelectList)ViewBag.Brands, "Select the brand")
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</br>
+</br>
+</br>
+</br>
+
+<div id="chartContainer" style="height: 370px; width: 60%; margin: 0 auto;"></div>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .dropdown-label {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .dropdown-label.left {
+        text-align: left;
+    }
+
+    .dropdown-label.right {
+        text-align: right;
+    }
+
+</style>
+
+<script>
+
+    var chart;
+
+    window.onload = function () {
+
+        chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Sales By Month for Example"
+            },
+            axisX: {
+                valueFormatString: "MMM"
+            },
+            data: [{
+                type: "line",
+                indexLabelFontSize: 16,
+                dataPoints: [
+                    { y: 50, label: "Janeiro" },
+                    { y: 500, label: "Fevereiro" },
+                    { y: 300, label: "Março" },
+                    { y: 25, label: "Abril" }
+                ]
+            }]
+        });
+        chart.render();
+
+    }
+</script>
+
+<script>
+    document.getElementById("CategoryId").addEventListener("change", function () {
+        var selectedValue = this.value;
+
+        fetch('/Sales/GetProductsByCategory?id=' + selectedValue)
+            .then(response => response.json())
+            .then(data => {
+                populateProductDropdown(data);
+            });
+    });
+
+    document.getElementById("ProductId").addEventListener("change", function () {
+        var selectedValue = this.value;
+
+        fetch('/Sales/GetBrandsByProduct?id=' + selectedValue)
+            .then(response => response.json())
+            .then(data => {
+                populateBrandDropdown(data);
+            });
+    });
+
+    document.getElementById("BrandId").addEventListener("change", function () {
+        var selectedValue = this.value;
+
+        fetch('/Sales/GetSalesData?brandId=' + selectedValue)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                updateChart(data);
+            })
+            .catch(error => {
+                console.error("Erro ao buscar dados:", error);
+            });
+    });
+
+    function populateProductDropdown(data) {
+        var productDropdown = document.getElementById("ProductId");
+        var brandDropdown = document.getElementById("BrandId");
+
+        productDropdown.innerHTML = "";
+        brandDropdown.innerHTML = "";
+
+        var defaultOptionProduct = document.createElement("option");
+        defaultOptionProduct.value = "";
+        defaultOptionProduct.text = "Select the product";
+        defaultOptionProduct.selected = true;
+        productDropdown.appendChild(defaultOptionProduct);
+
+        var defaultOptionBrand = document.createElement("option");
+        defaultOptionBrand.value = "";
+        defaultOptionBrand.text = "Select the brand";
+        defaultOptionBrand.selected = true;
+        brandDropdown.appendChild(defaultOptionBrand);
+
+        data.forEach(function (item) {
+            var option = document.createElement("option");
+            option.value = item["value"];
+            option.text = item["text"];
+            productDropdown.appendChild(option);
+        });
+    }
+
+    function populateBrandDropdown(data) {
+        var brandDropdown = document.getElementById("BrandId");
+
+        brandDropdown.innerHTML = "";
+
+        var defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.text = "Select the brand";
+        defaultOption.selected = true;
+        brandDropdown.appendChild(defaultOption);
+
+        data.forEach(function (item) {
+            var option = document.createElement("option");
+            option.value = item["value"];
+            option.text = item["text"];
+            brandDropdown.appendChild(option);
+        });
+    }
+
+    function updateChart(data) {
+        var dataPoints = [];
+        for (var i = 0; i < data.length; i++) {
+            dataPoints.push({ y: data[i].amount, label: data[i].month });
+        }
+
+        chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title: {
+                text: "Sales By Month for Example"
+            },
+            axisX: {
+                valueFormatString: "MMM"
+            },
+            data: [{
+                type: "line",
+                indexLabelFontSize: 16,
+                dataPoints: dataPoints
+            }]
+        });
+        chart.render();
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
