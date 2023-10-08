@@ -1,3 +1,7 @@
+
+<br />
+<br />
+
 <div class="container">
   <div class="dropdown-label left">
     <select [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()">
@@ -12,11 +16,16 @@
     </select>
   </div>
   <div class="dropdown-label right">
-    <select [(ngModel)]="selectedBrandId">
+    <select [(ngModel)]="selectedBrandId" (change)="onBrandChange()">
       <option value="0">Select Brand</option>
       <option *ngFor="let brand of brands" [value]="brand.id">{{ brand.name }}</option>
     </select>
   </div>
 </div>
 
+<br />
+<br />
+
 <div id="chartContainer" style="height: 370px; width: 60%; margin: 0 auto;"></div>
+<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+

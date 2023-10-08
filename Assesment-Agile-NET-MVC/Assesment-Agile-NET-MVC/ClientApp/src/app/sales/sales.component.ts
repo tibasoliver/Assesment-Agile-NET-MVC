@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 import { SalesService } from '../sales.service';
+
+declare var CanvasJS: any;
 
 @Component({
   selector: 'app-sales',
@@ -15,11 +17,20 @@ export class SalesComponent implements OnInit {
   selectedProductId: number = 0;
   selectedBrandId: number = 0;
 
-  constructor(private salesService: SalesService) { }
+  constructor(private salesService: SalesService, private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
-
+    this.addScript();
     this.fetchAllCategories();
+    this.renderChart();
+  }
+
+  addScript() {
+    let script = this.renderer.createElement('script');
+    script.type = `text/javascript`;
+    script.src = `https://cdn.canvasjs.com/canvasjs.min.js`;
+    script.onload = this.loadCallback.bind(this);
+    this.renderer.appendChild(this.el.nativeElement, script);
   }
 
   fetchAllCategories() {
@@ -30,6 +41,11 @@ export class SalesComponent implements OnInit {
         name: item.text
       }));
     });
+  }
+
+  loadCallback() {
+    // Você pode chamar funções relacionadas ao CanvasJS aqui, já que o script estará carregado neste ponto.
+    this.renderChart();
   }
 
   loadCategories() {
@@ -70,7 +86,63 @@ export class SalesComponent implements OnInit {
     }
   }
 
-  onBrandChange() {
+  renderChart(): void {
+    let chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Sales By Month for Example"
+      },
+      axisX: {
+        valueFormatString: "MMM"
+      },
+      data: [{
+        type: "line",
+        indexLabelFontSize: 16,
+        dataPoints: [
+          { y: 50, label: "Janeiro" },
+          { y: 500, label: "Fevereiro" },
+          { y: 300, label: "Março" },
+          { y: 25, label: "Abril" }
+        ]
+      }]
+    });
+    chart.render();
+  }
 
+  onBrandChange() {
+    if (this.selectedBrandId !== 0) { // Certificando-se de que "Select Brand" não foi escolhido
+      const selectedBrandName = this.brands.find(brand => brand.id === this.selectedBrandId).name;
+      this.salesService.getSalesDataByBrand(this.selectedBrandId).subscribe(data => {
+        //console.log(data);
+        this.updateChart(data, selectedBrandName);
+      });
+    }
+  }
+
+  updateChart(data: any[], brandName: string) {
+    // Transforme 'data' no formato desejado, se necessário
+
+    var dataPoints = [];
+    for (var i = 0; i < data.length; i++) {
+      dataPoints.push({ y: data[i].amount, label: data[i].month });
+    }
+
+    let chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2",
+      title: {
+        text: "Sales By Month for " + brandName
+      },
+      axisX: {
+        valueFormatString: "MMM"
+      },
+      data: [{
+        type: "line",
+        indexLabelFontSize: 16,
+        dataPoints: dataPoints
+      }]
+    });
+    chart.render();
   }
 }
