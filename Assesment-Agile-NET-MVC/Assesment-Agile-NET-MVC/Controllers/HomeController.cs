@@ -13,11 +13,6 @@ namespace Assesment_Agile_NET_MVC.Controllers
 			_logger = logger;
 		}
 
-        //public IActionResult Index()
-        //{
-        //	return View();
-        //}
-
         public IActionResult Index()
         {
             return PhysicalFile(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/my-angular-app", "index.html"), "text/HTML");
