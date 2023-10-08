@@ -44,7 +44,6 @@ export class SalesComponent implements OnInit {
   }
 
   loadCallback() {
-    // Você pode chamar funções relacionadas ao CanvasJS aqui, já que o script estará carregado neste ponto.
     this.renderChart();
   }
 
@@ -63,11 +62,6 @@ export class SalesComponent implements OnInit {
         this.selectedProductId = 0;
       });
     } else {
-      // Limpe ambas as listas se a categoria não estiver selecionada
-      //this.products = [];
-      //this.brands = [];
-      //this.selectedProductId = 0;
-      //this.selectedBrandId = 0;
     }
   }
 
@@ -111,17 +105,15 @@ export class SalesComponent implements OnInit {
   }
 
   onBrandChange() {
-    if (this.selectedBrandId !== 0) { // Certificando-se de que "Select Brand" não foi escolhido
+    if (this.selectedBrandId !== 0) { 
       const selectedBrandName = this.brands.find(brand => brand.id === this.selectedBrandId).name;
       this.salesService.getSalesDataByBrand(this.selectedBrandId).subscribe(data => {
-        //console.log(data);
-        this.updateChart(data, selectedBrandName);
+      this.updateChart(data, selectedBrandName);
       });
     }
   }
 
   updateChart(data: any[], brandName: string) {
-    // Transforme 'data' no formato desejado, se necessário
 
     var dataPoints = [];
     for (var i = 0; i < data.length; i++) {
